@@ -37,7 +37,6 @@ def language_input() -> int:
 
     :return: An integer representing the language choice made by the user
     """
-    lang = input('Please choose a language:\n')
 
     return (int(input()))
 
@@ -53,11 +52,10 @@ def language_choice_is_valid(lang_options: Dict[int, str], lang_choice: int) -> 
     :param lang_choice: An integer representing the value the user selected
     :return: A boolean representing the validity of the lang_choice
     """
-    
-    x = lang_choice in lang_options
-
-    return x
-
+    if lang_options.get(lang_choice) is not None:
+        return True
+    else:
+        return False
 
 
 def get_name_input(name_prompt_options: Dict[int, str], lang_choice: int) -> str:
